@@ -1,0 +1,92 @@
+/* Make sure the whole screen is dark */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.app {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 20px;
+  min-height: 100vh;  /* Make the app take full screen height */
+  transition: background-color 0.3s ease, color 0.3s ease, background-image 0.3s ease;  /* Smooth transition between themes */
+  background-size: cover;  /* Ensures the image covers the entire background */
+  background-position: center;  /* Center the image */
+  background-repeat: no-repeat;
+}
+
+.app.light {
+  background-color: #f0f0f0;  /* Fallback for light background */
+  background-image: url('../src/images/ll.jpg.webp');  /* Path to light mode background image */
+  color: #000;  /* Light text color */
+}
+
+.app.dark {
+  background-color: #121212;  /* Full dark background fallback */
+  background-image: url('../src/images/dd.jpg.webp');  /* Path to dark mode background image */
+  color: #fff;  /* White text in dark mode */
+}
+
+.container {
+  margin-top: 20px;
+}
+
+input {
+  padding: 8px;
+  margin-right: 10px;
+  background-color: #fff;  /* Light mode input */
+  border: 1px solid #ccc;
+  color: #000;
+}
+
+.app.dark input {
+  background-color: #333;  /* Dark mode input background */
+  border: 1px solid #555;
+  color: #fff;  /* Dark mode input text color */
+}
+
+button {
+  padding: 8px 12px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: #888;
+  cursor: not-allowed;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.app.dark button {
+  background-color: #0066cc;  /* Dark mode button background */
+}
+
+.app.dark button:hover {
+  background-color: #004c99;  /* Dark mode button hover */
+}
+
+/* Spinner Animation */
+.loader {
+  margin: 20px auto;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #007bff;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
